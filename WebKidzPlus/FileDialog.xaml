@@ -1,0 +1,16 @@
+﻿<Window x:Class="WebKidzPlus.FileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebKidzPlus"
+        mc:Ignorable="d"
+        Title="FileDialog" Height="100" Width="300">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Project Name:" x:Name="DisplayTxt" />
+            <TextBox x:Name="ResponseTextBox" />
+            <Button Content="OK" Click="OKButton_Click" Width="100" IsDefault="True" />
+        </StackPanel>
+    </Grid>
+</Window>
