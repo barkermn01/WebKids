@@ -93,6 +93,7 @@ namespace WebKidzPlus.Editors
             if(Tabs.SelectedIndex == 1)
             {
                 webControl.Source = new System.Uri("file://" + filePath);
+                webControl.Reload(true);
             }else
             {
 

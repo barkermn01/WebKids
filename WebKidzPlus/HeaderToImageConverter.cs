@@ -29,9 +29,29 @@ namespace WebKidzPlus
             {
                 path = "pack://application:,,,/Images/CSS.png";
             }
+            if (value.Substring(value.Length - 5).ToLower() == ".tiff")
+            {
+                path = "pack://application:,,,/Images/image.png";
+            }
+            if (value.Substring(value.Length - 5).ToLower() == ".jpeg")
+            {
+                path = "pack://application:,,,/Images/image.png";
+            }
             if (value.Substring(value.Length - 3).ToLower() == ".js")
             {
                 path = "pack://application:,,,/Images/JS.png";
+            }
+            if (value.Substring(value.Length - 4).ToLower() == ".png")
+            {
+                path = "pack://application:,,,/Images/image.png";
+            }
+            if (value.Substring(value.Length - 4).ToLower() == ".jpg")
+            {
+                path = "pack://application:,,,/Images/image.png";
+            }
+            if (value.Substring(value.Length - 4).ToLower() == ".gif")
+            {
+                path = "pack://application:,,,/Images/image.png";
             }
             Uri uri = new Uri(path);
             BitmapImage source = new BitmapImage(uri);

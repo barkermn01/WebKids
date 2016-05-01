@@ -132,7 +132,14 @@ namespace WebKidzPlus
             }
             else
             {
-                path = ((TreeViewItem)tvi.Parent).Tag.ToString().Replace("/", "\\");
+                try
+                {
+                    path = ((TreeViewItem)tvi.Parent).Tag.ToString().Replace("/", "\\");
+                }
+                catch (Exception)
+                {
+                    path = value + "\\";
+                }
             }
             FileDialog fd = new FileDialog("Folder Name");
             if (fd.ShowDialog() == true)
@@ -184,6 +191,42 @@ namespace WebKidzPlus
             else
             {
                 File.Delete(value);
+                SetPath(path);
+            }
+        }
+
+        private void TV_CM_Import_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                TreeViewItem tvi = (TreeViewItem)foldersItem.SelectedItem;
+
+                String value = tvi.Tag.ToString();
+                String path = "";
+                if (value.Contains("/"))
+                {
+                    path = value.Replace("/", "\\");
+                }
+                else
+                {
+                    try
+                    {
+                        path = ((TreeViewItem)tvi.Parent).Tag.ToString().Replace("/", "\\");
+                    }
+                    catch (Exception)
+                    {
+                        path = value + "\\";
+                    }
+                }
+                File.Copy(filename, path + filename.Substring(filename.LastIndexOf('\\') + 1));
                 SetPath(path);
             }
         }
